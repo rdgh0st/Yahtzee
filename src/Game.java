@@ -5,8 +5,7 @@ public class Game {
 		
 		Die die = new Die();
 		
-		
-		
+		ScoreSheet ss = new ScoreSheet();
 	}
 
 }
