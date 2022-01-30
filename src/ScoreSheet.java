@@ -129,7 +129,7 @@ public class ScoreSheet {
 			System.out.print("You have already filled in a score for this category, please select another:");
 			input = scan.nextInt() - 1;
 		} 
-		sheet[input] = 15;
+		sheet[input] = 15; //  CHANGE THIS TO THE SCORE CALCED BY DICECUP
 	}
 	
 }

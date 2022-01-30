@@ -3,9 +3,12 @@ public class Game {
 
 	public static void main(String[] args) {
 		
-		Die die = new Die();
+		DiceCup dc = new DiceCup();
 		
-		ScoreSheet ss = new ScoreSheet();
+		dc.RollDice();
+		
+		dc.PrintDice();
+		
 	}
 
 }

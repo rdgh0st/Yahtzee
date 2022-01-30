@@ -39,4 +39,8 @@ public class Die {
 		return this.faceUp;
 	}
 	
+	@Override public String toString() {
+		return Integer.toString(faceUp);
+	}
+	
 }
