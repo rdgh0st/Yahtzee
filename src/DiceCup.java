@@ -1,4 +1,4 @@
-
+// TEST TO MAKE SURE IT PUSHES RIGHT
 public class DiceCup {
 	private Die[] cup;
 	private boolean[] kept;
