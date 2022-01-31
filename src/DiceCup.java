@@ -1,4 +1,5 @@
 // TEST TO MAKE SURE IT PUSHES RIGHT
+// MAKE PRIVATE SCORING METHODS
 public class DiceCup {
 	private Die[] cup;
 	private boolean[] kept;
