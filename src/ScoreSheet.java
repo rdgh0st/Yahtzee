@@ -2,6 +2,8 @@ import java.util.*;
 
 public class ScoreSheet {
 	private int[] sheet = new int[13];
+	private boolean[] filled = new boolean[13];
+	private DiceCup dice;
 	
 	/**
 	 * Default constructor, sets scores of all items to zero
@@ -10,6 +12,10 @@ public class ScoreSheet {
 		for (int i : sheet) {
 			i = 0;
 		}
+		for (boolean b : filled) {
+			b = false;
+		}
+		dice = new DiceCup();
 	}
 
 	public int getScore() {
@@ -125,11 +131,12 @@ public class ScoreSheet {
 		System.out.print("Choose 1 - 13 to score your roll:");
 		input = scan.nextInt() - 1;
 		System.out.println();
-		while (sheet[input] != 0) {
+		while (filled[input]) {
 			System.out.print("You have already filled in a score for this category, please select another:");
 			input = scan.nextInt() - 1;
 		} 
-		sheet[input] = 15; //  CHANGE THIS TO THE SCORE CALCED BY DICECUP
+		sheet[input] = dice.ScoreInCategory(input);
+		filled[input] = true;
 	}
 	
 }
