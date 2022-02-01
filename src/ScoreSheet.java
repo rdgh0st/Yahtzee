@@ -125,7 +125,7 @@ public class ScoreSheet {
 			System.out.println(choice + " - " + type + sheet[i] + "]");
 		}
 		System.out.println("-----------------------------------");
-		System.out.println("Total:			" + getScore());
+		System.out.println("Total:				" + getScore());
 		Scanner scan = new Scanner(System.in);
 		int input = 0;
 		System.out.print("Choose 1 - 13 to score your roll:");
@@ -137,6 +137,10 @@ public class ScoreSheet {
 		} 
 		sheet[input] = dice.ScoreInCategory(input);
 		filled[input] = true;
+	}
+	
+	public void setDiceCup(DiceCup d) {
+		dice = d;
 	}
 	
 }

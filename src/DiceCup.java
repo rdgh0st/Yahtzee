@@ -23,7 +23,7 @@ public class DiceCup {
 			return;
 		}
 		if (i < 1 || i > 5) {
-			throw new IndexOutOfBoundsException("Please Enter a Valid Die Index");
+			System.out.println("Please Enter a Valid Die Index.");
 		} else {
 			kept[i - 1] = !kept[i - 1];
 		}
@@ -74,31 +74,31 @@ public class DiceCup {
 	
 	public int ScoreInCategory(int index) {
 		switch (index) {
-		case 1:
+		case 0:
 			return GetNumberScore(1);
-		case 2:
+		case 1:
 			return GetNumberScore(2);
-		case 3:
+		case 2:
 			return GetNumberScore(3);
-		case 4:
+		case 3:
 			return GetNumberScore(4);
-		case 5:
+		case 4:
 			return GetNumberScore(5);
-		case 6:
+		case 5:
 			return GetNumberScore(6);
-		case 7:
+		case 6:
 			return OfAKind(3);
-		case 8:
+		case 7:
 			return OfAKind(4);
-		case 9:
+		case 8:
 			return FullHouse();
-		case 10:
+		case 9:
 			return FindStraight(false);
-		case 11:
+		case 10:
 			return FindStraight(true);
-		case 12:
+		case 11:
 			return CheckYahtzee();
-		case 13:
+		case 12:
 			return Chance();
 		}
 		throw new IndexOutOfBoundsException("Please Enter a Valid Category");
@@ -134,7 +134,7 @@ public class DiceCup {
 		boolean hasThree = false;
 		int[] freq = new int[6];
 		for (Die d : cup) {
-			freq[d.getFaceUp()]++;
+			freq[d.getFaceUp() - 1]++;
 		}
 		for (int i : freq) {
 			if (i == 2) {
@@ -197,6 +197,13 @@ public class DiceCup {
 			sum += d.getFaceUp();
 		}
 		return sum;
+	}
+	
+	public void CompleteReroll() {
+		for (int i = 0; i < cup.length; i++) {
+			kept[i] = false;
+		}
+		RollDice();
 	}
 	
 }

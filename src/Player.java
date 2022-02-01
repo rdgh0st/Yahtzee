@@ -22,7 +22,7 @@ public class Player {
 			dice.RollDice();
 			dice.PrintDice();
 			System.out.println("Which dice do you want to keep?");
-			System.out.print("Enter 1-5 to Toggle the Die or -1 to Roll");
+			System.out.println("Enter 1-5 to Toggle the Die or -1 to Roll");
 			int input = 0;
 			while (input != -1) {
 				dice.PrintWithKeep();
@@ -30,7 +30,11 @@ public class Player {
 				dice.Keep(input);
 			}
 		}
-		// START SCORING
+		System.out.println("Scoring Turn For Player " + playerID);
+		dice.PrintDice();
+		scoring.setDiceCup(dice);
+		scoring.showAndSet();
+		dice.CompleteReroll();
 	}
 	
 }
