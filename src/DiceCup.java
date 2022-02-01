@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-// TEST TO MAKE SURE IT PUSHES RIGHT
-// MAKE PRIVATE SCORING METHODS
+
 public class DiceCup {
 	private Die[] cup;
 	private boolean[] kept;
 	
+	/**
+	 * Constructor initializes Die array to empty Die, kept array to all false
+	 */
 	public DiceCup() {
 		cup = new Die[5];
 		kept = new boolean[5];
@@ -18,6 +20,10 @@ public class DiceCup {
 		}
 	}
 	
+	/**
+	 * Toggles the kept value of requested Die, if i == -1 we roll and if it is any other index nothing happens
+	 * @param i - Index of the Die to keep
+	 */
 	public void Keep(int i) {
 		if (i == -1) {
 			return;
@@ -29,6 +35,10 @@ public class DiceCup {
 		}
 	}
 	
+	/**
+	 * RollDice cycles through each Die in the array. If the kept value is true, it is ignored.
+	 * Otherwise, we call the Roll() method from the Die class
+	 */
 	public void RollDice() {
 		for (int i = 0; i < kept.length; i++) {
 			if (!kept[i]) {
@@ -38,6 +48,9 @@ public class DiceCup {
 		}
 	}
 	
+	/**
+	 * Prints only the dice values in standardized format
+	 */
 	public void PrintDice() {
 		String ret = "Roll: ";
 		for (int i = 0; i < cup.length; i++) {
@@ -49,6 +62,11 @@ public class DiceCup {
 		System.out.println(ret);
 	}
 	
+	/**
+	 * Prints the values of all Dice on one line
+	 * Prints the values of whether that Die is currently kept or not on next line
+	 * Everything in standardized format
+	 */
 	public void PrintWithKeep() {
 		String ret = "Dice:	";
 		for (int i = 0; i < cup.length; i++) {
@@ -72,6 +90,11 @@ public class DiceCup {
 		System.out.println(nextRet);
 	}
 	
+	/**
+	 * Method to check the dice for desired score category
+	 * @param index - the category that the player wishes to check
+	 * @return The score from the dice being passed into that category
+	 */
 	public int ScoreInCategory(int index) {
 		switch (index) {
 		case 0:
@@ -104,6 +127,11 @@ public class DiceCup {
 		throw new IndexOutOfBoundsException("Please Enter a Valid Category");
 	}
 	
+	/**
+	 * This is for checking sets of 1/2/3/4/5/6
+	 * @param numIndex - the number on dice that the player is requesting
+	 * @return Score of the dice after being passed through with specified numIndex
+	 */
 	private int GetNumberScore(int numIndex) {
 		int score = 0;
 		for (Die d : cup) {
@@ -114,6 +142,11 @@ public class DiceCup {
 		return score;
 	}
 	
+	/**
+	 * Checks for 3 of a kind or 4 of a kind
+	 * @param howMany - Will check for 3 matching or 4 matching
+	 * @return Score of the dice after being passed through with specified number of matching
+	 */
 	private int OfAKind(int howMany) {
 		int score = 0;
 		for (Die d : cup) {
@@ -129,6 +162,10 @@ public class DiceCup {
 		return 0;
 	}
 	
+	/**
+	 * Checks the dice for a fullHouse by creating a frequency array and checking for 2 and 3 to appear in it
+	 * @return Either 25 if there is a full house or 0 if there is not
+	 */
 	private int FullHouse() {
 		boolean hasPair = false;
 		boolean hasThree = false;
@@ -150,6 +187,11 @@ public class DiceCup {
 		}
 	}
 	
+	/**
+	 * Checks for a straight in the dice
+	 * @param isLarge - Set to true if checking for a large straight, false if small straight
+	 * @return 40 for successful large straight, 30 for successful small straight, or 0 if neither
+	 */
 	private int FindStraight(boolean isLarge) {
 		int[] nums = new int[5];
 		for (int i = 0; i < nums.length; i++) {
@@ -181,6 +223,10 @@ public class DiceCup {
 		}
 	}
 	
+	/**
+	 * Checks if all five numbers are the same
+	 * @return 50 if Yahtzee, 0 if not
+	 */
 	private int CheckYahtzee() {
 		int num = cup[0].getFaceUp();
 		for (Die d : cup) {
@@ -191,6 +237,10 @@ public class DiceCup {
 		return 50;
 	}
 	
+	/**
+	 * Adds all dice numbers as score
+	 * @return sum of all dice
+	 */
 	private int Chance() {
 		int sum = 0;
 		for (Die d : cup) {
@@ -199,6 +249,10 @@ public class DiceCup {
 		return sum;
 	}
 	
+	/**
+	 * Sets all kept values to false and rolls again
+	 * Used after scoring
+	 */
 	public void CompleteReroll() {
 		for (int i = 0; i < cup.length; i++) {
 			kept[i] = false;

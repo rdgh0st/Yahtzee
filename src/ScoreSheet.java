@@ -6,7 +6,7 @@ public class ScoreSheet {
 	private DiceCup dice;
 	
 	/**
-	 * Default constructor, sets scores of all items to zero
+	 * Default constructor, sets scores of all items to zero and filled value to false
 	 */
 	public ScoreSheet() {
 		for (int i : sheet) {
@@ -18,6 +18,10 @@ public class ScoreSheet {
 		dice = new DiceCup();
 	}
 
+	/**
+	 * Checks sum of scores in all categories
+	 * @return total score
+	 */
 	public int getScore() {
 		int sum = 0;
 		for (int i : sheet) {
@@ -26,6 +30,9 @@ public class ScoreSheet {
 		return sum;
 	}
 
+	/**
+	 * Displays scores of all categories and their total at the bottom
+	 */
 	public void showScores() {
 		for (int i = 0; i < sheet.length; i++) {
 			String type = "";
@@ -76,6 +83,9 @@ public class ScoreSheet {
 		System.out.println("Total:			" + getScore());
 	}
 	
+	/**
+	 * Displays scores in all categories with total at the bottom, then asks user to score their roll in a category
+	 */
 	public void showAndSet() {
 		System.out.println("Where would you like to score this roll?");
 		for (int i = 0; i < sheet.length; i++) {
@@ -126,19 +136,27 @@ public class ScoreSheet {
 		}
 		System.out.println("-----------------------------------");
 		System.out.println("Total:				" + getScore());
+		
 		Scanner scan = new Scanner(System.in);
 		int input = 0;
+		
 		System.out.print("Choose 1 - 13 to score your roll:");
 		input = scan.nextInt() - 1;
 		System.out.println();
+		
 		while (filled[input]) {
 			System.out.print("You have already filled in a score for this category, please select another:");
 			input = scan.nextInt() - 1;
 		} 
+		
 		sheet[input] = dice.ScoreInCategory(input);
 		filled[input] = true;
 	}
 	
+	/**
+	 * Sets the DiceCup for this scoresheet to a new DiceCup
+	 * @param The new DiceCup
+	 */
 	public void setDiceCup(DiceCup d) {
 		dice = d;
 	}
