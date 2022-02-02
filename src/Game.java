@@ -23,6 +23,19 @@ public class Game {
 				players[i].StartTurn();
 			}
 		}
+		
+		int maxScore = 0;
+		int maxScoreIndex = 0;
+		for (int i = 0; i < players.length; i++) {
+			if (players[i].getSheet().getScore() > maxScore) {
+				maxScore = players[i].getSheet().getScore();
+				maxScoreIndex = i;
+			}
+		}
+		
+		System.out.println("Player " + players[maxScoreIndex].getID() + " wins with a total score of " + players[maxScoreIndex].getSheet().getScore() + "! Congratulations!");
+		System.out.println("Thanks for Playing!");
+		
 	}
 
 }

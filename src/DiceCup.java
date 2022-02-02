@@ -154,8 +154,8 @@ public class DiceCup {
 		}
 		int[] freq = new int[6];
 		for (Die d : cup) {
-			freq[d.getFaceUp()]++;
-			if (freq[d.getFaceUp()] >= howMany) {
+			freq[d.getFaceUp() - 1]++;
+			if (freq[d.getFaceUp() - 1] >= howMany) {
 				return score;
 			}
 		}

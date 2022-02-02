@@ -144,8 +144,8 @@ public class ScoreSheet {
 		input = scan.nextInt() - 1;
 		System.out.println();
 		
-		while (filled[input]) {
-			System.out.print("You have already filled in a score for this category, please select another:");
+		while (input < 0 || input > 12 || filled[input]) {
+			System.out.print("You have either already filled in a score for this category or the input is invalid, please select another:");
 			input = scan.nextInt() - 1;
 		} 
 		

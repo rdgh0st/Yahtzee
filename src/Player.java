@@ -51,4 +51,19 @@ public class Player {
 		dice.CompleteReroll();
 	}
 	
+	/**
+	 * returns the scoresheet of the corresponding player
+	 */
+	public ScoreSheet getSheet() {
+		return this.scoring;
+	}
+	
+	/**
+	 * 
+	 * @return playerID
+	 */
+	public int getID() {
+		return this.playerID;
+	}
+	
 }
