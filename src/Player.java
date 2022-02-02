@@ -1,5 +1,13 @@
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Rob Davis
+ * The Player class stores information about each individual player, such as their scoresheet, current dice, and their ID.
+ * This contains minor game logic about having three rounds to roll and choose what to keep.
+ *
+ */
+
 public class Player {
 	
 	private static int numPlayers = 0;

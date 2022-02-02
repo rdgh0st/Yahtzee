@@ -1,5 +1,13 @@
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Rob Davis
+ * The Game class contains the foundational game logic for yahtzee. It takes the specified number of players, initiates turns in the right order,
+ * and then evaluates a winner and reports back.
+ *
+ */
+
 public class Game {
 
 	public static void main(String[] args) {

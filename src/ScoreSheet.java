@@ -1,5 +1,13 @@
 import java.util.*;
 
+/**
+ * 
+ * @author Rob Davis
+ * The ScoreSheet class contains information about scores in individual categories, as well as methods to evaluate what should be scored 
+ * in a specific category based on the current dice on the field.
+ *
+ */
+
 public class ScoreSheet {
 	private int[] sheet = new int[13];
 	private boolean[] filled = new boolean[13];

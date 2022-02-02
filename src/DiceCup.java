@@ -1,6 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * 
+ * @author Rob Davis
+ * The Dice class contains information about the five dice on the field, and contains method to keep certain dice, roll while keeping that in mind,
+ * and rolling without regard to what is kept or not.
+ *
+ */
 
 public class DiceCup {
 	private Die[] cup;

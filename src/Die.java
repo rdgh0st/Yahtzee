@@ -1,16 +1,24 @@
 import java.util.*;
 
+/**
+ * 
+ * @author Rob Davis
+ * The Die class contains information about an individual Die including its shown number, and a method to roll them
+ *
+ */
+
 public class Die {
 
 	private int sides;
 	private int faceUp;
-	private Random random = new Random();
+	private Random random;
 	
 	/**
 	 * Default Constructor, Creates 6-Sided Die
 	 */
 	public Die() {
 		this.sides = 6;
+		random = new Random();
 	}
 	
 	/**
